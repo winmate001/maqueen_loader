@@ -27,14 +27,14 @@ maqueen.IR_callbackUser(function (message) {
 // ---------------------------------------------------------------------
 function doServo () {
     switch (mode) {
-        case MODE.down:
-            maqueen.servoRun(maqueen.Servos.S1, 0);
-            break;
         case MODE.up:
+            maqueen.servoRun(maqueen.Servos.S1, 90);
+            break;
+        case MODE.down:
             maqueen.servoRun(maqueen.Servos.S1, 180);
             break;
         case MODE.center:
-            maqueen.servoRun(maqueen.Servos.S1, 90);
+            maqueen.servoRun(maqueen.Servos.S1, 145);
             break;
     }
     basic.pause(1000);
