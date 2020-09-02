@@ -28,13 +28,13 @@ maqueen.IR_callbackUser(function (message) {
 function doServo () {
     switch (mode) {
         case MODE.up:
-            maqueen.servoRun(maqueen.Servos.S1, 90);
+            maqueen.servoRun(maqueen.Servos.S1, 0);
             break;
         case MODE.down:
-            maqueen.servoRun(maqueen.Servos.S1, 180);
+            maqueen.servoRun(maqueen.Servos.S1, 130);
             break;
         case MODE.center:
-            maqueen.servoRun(maqueen.Servos.S1, 145);
+            maqueen.servoRun(maqueen.Servos.S1, 90);
             break;
     }
     basic.pause(1000);
@@ -73,8 +73,8 @@ enum MODE {
     back = 2,
     left = 3,
     right = 4,
-    down = 5,
-    up = 6,
+    up = 5,
+    down = 6,
     center = 7,
     stop = 8,
 }
