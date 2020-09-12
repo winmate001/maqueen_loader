@@ -18,6 +18,14 @@ maqueen.IR_callbackUser(function (message) {
         case MODE.stop:
             basic.showIcon(IconNames.Asleep, 0);
             break;
+        case MODE.ledOn:
+            maqueen.writeLED(maqueen.LED.LEDLeft,  maqueen.LEDswitch.turnOn);
+            maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn);
+            break;
+        case MODE.ledOff:
+            maqueen.writeLED(maqueen.LED.LEDLeft,  maqueen.LEDswitch.turnOff);
+            maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff);
+            break;
     }
     mode = message
 })
@@ -79,6 +87,8 @@ enum MODE {
     up      = 10, // シャベル上
     center  = 11, // シャベル中
     down    = 12, // シャベル下
+    ledOn   =  1, // LED ON
+    ledOff  =  3, // LED OFF
 }
 basic.showIcon(IconNames.Asleep, 0);
 // ---------------------------------------------------------------------
