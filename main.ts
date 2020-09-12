@@ -19,7 +19,7 @@ maqueen.IR_callbackUser(function (message) {
             basic.showIcon(IconNames.Asleep, 0);
             break;
     }
-    mode = message;
+    mode = message
 })
 // ---------------------------------------------------------------------
 // サーボモータ動作処理
@@ -37,7 +37,7 @@ function doServo () {
             maqueen.servoRun(maqueen.Servos.S1, 90);
             break;
     }
-    basic.pause(1000);
+    basic.pause(1000)
 }
 // ---------------------------------------------------------------------
 // モータ動作処理（引数は回転速度）
@@ -61,22 +61,24 @@ function doDrive (speed: number) {
             break;
     }
 }
-// ---------------------------------------------------------------------
-// 初期処理
-// ・変数定義
-// ・アイコン表示
-// ---------------------------------------------------------------------
-let mode = 0;
-let speed = 50;
+/**
+ * 初期処理
+ * 
+ * ・変数定義
+ * 
+ * ・アイコン表示
+ */
+let mode = 0
+let speed = 50
 enum MODE {
     advance = 1, 
-    back = 2,
-    left = 3,
-    right = 4,
-    up = 5,
-    down = 6,
-    center = 7,
-    stop = 8,
+    back    = 2,
+    left    = 3,
+    right   = 4,
+    up      = 5,
+    down    = 6,
+    center  = 7,
+    stop    = 8,
 }
 basic.showIcon(IconNames.Asleep, 0);
 // ---------------------------------------------------------------------
