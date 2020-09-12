@@ -19,12 +19,8 @@ maqueen.IR_callbackUser(function (message) {
             basic.showIcon(IconNames.Asleep, 0);
             break;
         case MODE.ledOn:
-            maqueen.writeLED(maqueen.LED.LEDLeft,  maqueen.LEDswitch.turnOn);
-            maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn);
-            break;
         case MODE.ledOff:
-            maqueen.writeLED(maqueen.LED.LEDLeft,  maqueen.LEDswitch.turnOff);
-            maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff);
+            doLED();
             break;
     }
     mode = message
@@ -33,7 +29,8 @@ maqueen.IR_callbackUser(function (message) {
 // サーボモータ動作処理
 // ・モード変数に従いサーボモータを動作させる。
 // ---------------------------------------------------------------------
-function doServo () {
+function doServo ()
+{
     switch (mode) {
         case MODE.up:
             maqueen.servoRun(maqueen.Servos.S1, 0);
@@ -51,7 +48,8 @@ function doServo () {
 // モータ動作処理（引数は回転速度）
 // ・モード変数に従いモーターを動作させる。
 // ---------------------------------------------------------------------
-function doDrive (speed: number) {
+function doDrive (speed: number)
+{
     switch (mode) {
         case MODE.advance:
             maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CW, speed);
@@ -67,6 +65,21 @@ function doDrive (speed: number) {
             maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, speed);
             maqueen.motorStop(maqueen.Motors.M1);
             break;
+    }
+}
+// ---------------------------------------------------------------------
+// フロントLED動作処理
+// ・モード変数に従いフロントLEDの点灯動作させる。
+// ---------------------------------------------------------------------
+function doLED()
+{
+    if (mode == MODE.ledOn) {
+        maqueen.writeLED(maqueen.LED.LEDLeft,  maqueen.LEDswitch.turnOn);
+        maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOn);
+    }
+    else if (mode == MODE.ledOff) {
+        maqueen.writeLED(maqueen.LED.LEDLeft,  maqueen.LEDswitch.turnOff);
+        maqueen.writeLED(maqueen.LED.LEDRight, maqueen.LEDswitch.turnOff);
     }
 }
 /**
