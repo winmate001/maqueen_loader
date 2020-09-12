@@ -68,17 +68,17 @@ function doDrive (speed: number) {
  * 
  * ・アイコン表示
  */
-let mode = 0
-let speed = 50
+let mode  = 0  // 動作モード
+let speed = 50 // 走行速度
 enum MODE {
-    advance = 1, 
-    back    = 2,
-    left    = 3,
-    right   = 4,
-    up      = 5,
-    down    = 6,
-    center  = 7,
-    stop    = 8,
+    advance =  2, // 前進
+    back    =  8, // 後進
+    left    =  4, // 左カーブ
+    right   =  6, // 右カーブ
+    stop    =  5, // 停止
+    up      = 10, // シャベル上
+    center  = 11, // シャベル中
+    down    = 12, // シャベル下
 }
 basic.showIcon(IconNames.Asleep, 0);
 // ---------------------------------------------------------------------
